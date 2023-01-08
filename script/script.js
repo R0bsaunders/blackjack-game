@@ -131,7 +131,7 @@ function dealFirstCard() {
             };
 
             console.log("Dealer hand is " + dealer.hand);
-
+            
             if (user.playAgain == false) {
                 break;
             }
