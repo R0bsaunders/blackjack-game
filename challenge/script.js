@@ -138,6 +138,18 @@ function dealFirstCard() {
 
             // Choose to hit or stay
 
+            if(confirm(`Your hand is ${user.hand} and the Dealer's is  ${dealer.hand}. Will you hit or stay?`)) {
+                dealACard(user, getRandomCard(2, 11))
+                console.log("'Hit Me'");
+                console.log("User hand is " + user.hand);
+
+            } else {
+                user.hand + 0;
+                console.log("User stays");
+
+            };
+
+
             if(user.hand > 21) {
                 if(confirm(`Bust!! Your hand is ${user.hand}. Do you want to play again?`)) {
                     dealFirstCard();
@@ -155,38 +167,21 @@ function dealFirstCard() {
                 } else {
                     console.log("User Cancelled");
                     thanksMsg(user);
-                    break;
     
-                };
-
-            } else {
-                if(confirm(`Your hand is ${user.hand} and the Dealer's is  ${dealer.hand}. Will you hit or stay?`)) {
-                    dealACard(user, getRandomCard(2, 11))
-                    console.log("'Hit Me'");
-                    console.log("User hand is " + user.hand);
-
-                } else {
-                    user.hand + 0;
-                    console.log("User stays");
-
                 };
 
             };
 
-            if(user.hand > 21) {
-                if(confirm(`Bust!! Your hand is ${user.hand}. Do you want to play again?`)) {
-                    dealFirstCard();
-
-                } else {
-                    thanksMsg(user);
-                    break;
-
-                };
-
+            if (user.playAgain == false) {
+                break;
             };
 
         } while (user.playAgain == true);
 
+        if (user.playAgain == false) {
+            break;
+        };
+        
     } while (user.playAgain == true);
 
 };
